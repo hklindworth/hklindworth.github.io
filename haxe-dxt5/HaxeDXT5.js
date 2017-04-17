@@ -14,7 +14,7 @@ var ApplicationMain = function() { };
 $hxClasses["ApplicationMain"] = ApplicationMain;
 ApplicationMain.__name__ = ["ApplicationMain"];
 ApplicationMain.main = function() {
-	lime_system_System.__registerEntryPoint("HaxeDXT5",ApplicationMain.create,{ build : "360", company : "OpenFL", file : "HaxeDXT5", fps : 60, name : "HaxeDXT5", orientation : "", packageName : "org.openfl.samples.simpleswflayout", version : "1.0.0", windows : [{ allowHighDPI : false, antialiasing : 0, background : 16777215, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : true, height : 0, hidden : null, maximized : null, minimized : null, parameters : { }, resizable : true, stencilBuffer : true, title : "HaxeDXT5", vsync : false, width : 0, x : null, y : null}]});
+	lime_system_System.__registerEntryPoint("HaxeDXT5",ApplicationMain.create,{ build : "1", company : "OpenFL", file : "HaxeDXT5", fps : 60, name : "HaxeDXT5", orientation : "", packageName : "org.openfl.samples.simpleswflayout", version : "1.0.0", windows : [{ allowHighDPI : false, antialiasing : 0, background : 16777215, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : true, height : 0, hidden : null, maximized : null, minimized : null, parameters : { }, resizable : true, stencilBuffer : true, title : "HaxeDXT5", vsync : false, width : 0, x : null, y : null}]});
 };
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
@@ -1846,7 +1846,7 @@ Main.prototype = $extend(openfl_display_Sprite.prototype,{
 		var assets = new starling_utils_AssetManager();
 		assets.set_verbose(openfl_system_Capabilities.isDebugger);
 		var tomorrowBuilding = starling_textures_Texture.fromBitmapData(openfl_utils_Assets.getBitmapData("assets/tomorrow_building.png"),false);
-		var tomorrow = starling_textures_Texture.fromAtfData(openfl_utils_Assets.getBytes("assets/tomorrow.atf.gz"));
+		var tomorrow = starling_textures_Texture.fromAtfData(openfl_utils_Assets.getBytes("assets/tomorrow.atf"));
 		var tomorrowXml = Xml.parse(openfl_utils_Assets.getText("assets/tomorrow_png.xml")).firstElement();
 		var background = starling_textures_Texture.fromAtfData(openfl_utils_Assets.getBytes("assets/background02.atf"));
 		assets.addTexture("tomorrow_building",tomorrowBuilding);
@@ -30153,7 +30153,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 316019;
+	this.version = 123750;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = ["lime","utils","AssetCache"];
