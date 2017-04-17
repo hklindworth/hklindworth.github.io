@@ -1846,7 +1846,7 @@ Main.prototype = $extend(openfl_display_Sprite.prototype,{
 		var assets = new starling_utils_AssetManager();
 		assets.set_verbose(openfl_system_Capabilities.isDebugger);
 		var tomorrowBuilding = starling_textures_Texture.fromBitmapData(openfl_utils_Assets.getBitmapData("assets/tomorrow_building.png"),false);
-		var tomorrow = starling_textures_Texture.fromAtfData(openfl_utils_Assets.getBytes("assets/tomorrow.atf"));
+		var tomorrow = starling_textures_Texture.fromAtfData(openfl_utils_Assets.getBytes("assets/tomorrow.atf.gz"));
 		var tomorrowXml = Xml.parse(openfl_utils_Assets.getText("assets/tomorrow_png.xml")).firstElement();
 		var background = starling_textures_Texture.fromAtfData(openfl_utils_Assets.getBytes("assets/background02.atf"));
 		assets.addTexture("tomorrow_building",tomorrowBuilding);
@@ -30153,7 +30153,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 123750;
+	this.version = 944738;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = ["lime","utils","AssetCache"];
@@ -65130,7 +65130,7 @@ var scenes_MovieScene = function() {
 	var frames = Game.get_assets().getTextures("A_A_TomorrowEra_Culture3");
 	this.mMovies = [];
 	var _g = 0;
-	while(_g < 600) {
+	while(_g < 1000) {
 		var i = _g++;
 		var movie = new starling_display_MovieClip(frames,15);
 		movie.set_x(Constants.CenterX - (movie.get_width() / 2 | 0) + (i == 0?0:400 + i));
