@@ -14,7 +14,7 @@ var ApplicationMain = function() { };
 $hxClasses["ApplicationMain"] = ApplicationMain;
 ApplicationMain.__name__ = ["ApplicationMain"];
 ApplicationMain.main = function() {
-	lime_system_System.__registerEntryPoint("HaxeDXT5",ApplicationMain.create,{ build : "1", company : "OpenFL", file : "HaxeDXT5", fps : 60, name : "HaxeDXT5", orientation : "", packageName : "org.openfl.samples.simpleswflayout", version : "1.0.0", windows : [{ allowHighDPI : false, antialiasing : 0, background : 16777215, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : true, height : 0, hidden : null, maximized : null, minimized : null, parameters : { }, resizable : true, stencilBuffer : true, title : "HaxeDXT5", vsync : false, width : 0, x : null, y : null}]});
+	lime_system_System.__registerEntryPoint("HaxeDXT5",ApplicationMain.create,{ build : "3", company : "OpenFL", file : "HaxeDXT5", fps : 60, name : "HaxeDXT5", orientation : "", packageName : "org.openfl.samples.simpleswflayout", version : "1.0.0", windows : [{ allowHighDPI : false, antialiasing : 0, background : 16777215, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : true, height : 0, hidden : null, maximized : null, minimized : null, parameters : { }, resizable : true, stencilBuffer : true, title : "HaxeDXT5", vsync : false, width : 0, x : null, y : null}]});
 };
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
@@ -1845,14 +1845,18 @@ Main.prototype = $extend(openfl_display_Sprite.prototype,{
 		}
 		var assets = new starling_utils_AssetManager();
 		assets.set_verbose(openfl_system_Capabilities.isDebugger);
-		var tomorrowBuilding = starling_textures_Texture.fromBitmapData(openfl_utils_Assets.getBitmapData("assets/tomorrow_building.png"),false);
-		var tomorrow = starling_textures_Texture.fromAtfData(openfl_utils_Assets.getBytes("assets/tomorrow.atf"));
-		var tomorrowXml = Xml.parse(openfl_utils_Assets.getText("assets/tomorrow_png.xml")).firstElement();
 		var background = starling_textures_Texture.fromAtfData(openfl_utils_Assets.getBytes("assets/background02.atf"));
-		assets.addTexture("tomorrow_building",tomorrowBuilding);
-		assets.addTexture("atlas",tomorrow);
-		assets.addTextureAtlas("atlas",new starling_textures_TextureAtlas(tomorrow,tomorrowXml));
+		var tomorrowBuilding = starling_textures_Texture.fromBitmapData(openfl_utils_Assets.getBitmapData("assets/tomorrow_building.png"),false);
+		var tomorrowPng = starling_textures_Texture.fromBitmapData(openfl_utils_Assets.getBitmapData("assets/tomorrow.png"),false);
+		var tomorrowAtf = starling_textures_Texture.fromAtfData(openfl_utils__$ByteArray_ByteArray_$Impl_$.fromBytes(lime_utils_compress_GZip.decompress(openfl_utils__$ByteArray_ByteArray_$Impl_$.toBytes(openfl_utils_Assets.getBytes("assets/tomorrow.atf.gzip")))));
+		var tomorrowXmlPng = Xml.parse(openfl_utils_Assets.getText("assets/tomorrow_png.xml")).firstElement();
+		var tomorrowXmlAtf = Xml.parse(openfl_utils_Assets.getText("assets/tomorrow_atf.xml")).firstElement();
 		assets.addTexture("background",background);
+		assets.addTexture("tomorrow_building",tomorrowBuilding);
+		assets.addTexture("tomorrowPng",tomorrowPng);
+		assets.addTexture("tomorrowAtf",tomorrowAtf);
+		assets.addTextureAtlas("atlasPng",new starling_textures_TextureAtlas(tomorrowPng,tomorrowXmlPng));
+		assets.addTextureAtlas("atlasAtf",new starling_textures_TextureAtlas(tomorrowAtf,tomorrowXmlAtf));
 		game.start(assets);
 	}
 	,__class__: Main
@@ -5449,8 +5453,8 @@ Game.prototype = $extend(starling_display_Sprite.prototype,{
 		var _gthis = this;
 		Game.sAssets = assets;
 		this.mLoadingProgress = new utils_ProgressBar(175,20);
-		this.mLoadingProgress.set_x((480 - this.mLoadingProgress.get_width()) / 2);
-		this.mLoadingProgress.set_y(336.);
+		this.mLoadingProgress.set_x((800 - this.mLoadingProgress.get_width()) / 2);
+		this.mLoadingProgress.set_y(420.);
 		this.addChild(this.mLoadingProgress);
 		assets.loadQueue(function(ratio) {
 			_gthis.mLoadingProgress.set_ratio(ratio);
@@ -5634,7 +5638,7 @@ ManifestResources.init = function(config) {
 	lime_utils_Assets.defaultRootPath = rootPath;
 	var manifest;
 	var library;
-	manifest = lime_utils_AssetManifest.parse("{\"name\":null,\"assets\":\"aoy4:pathy25:assets%2Fbackground02.pngy4:sizei7937552y4:typey5:IMAGEy2:idR1y7:preloadtgoR0y21:assets%2Ftomorrow.pngR2i2141679R3R4R5R7R6tgoR0y30:assets%2Ftomorrow_building.pngR2i184693R3R4R5R8R6tgoR0y25:assets%2Ftomorrow_atf.xmlR2i4014R3y4:TEXTR5R9R6tgoR0y25:assets%2Ftomorrow_png.xmlR2i4014R3R10R5R11R6tgoR0y25:assets%2Fbackground02.atfR2i2097360R3y6:BINARYR5R12R6tgoR0y21:assets%2Ftomorrow.atfR2i4194512R3R13R5R14R6tgoR0y24:assets%2Ftomorrow.atf.gzR2i532414R3R13R5R15R6tgoR0R15R2i532414R3R13R5R15R6tgh\",\"version\":2,\"libraryArgs\":[],\"libraryType\":null}",rootPath);
+	manifest = lime_utils_AssetManifest.parse("{\"name\":null,\"assets\":\"aoy4:pathy25:assets%2Fbackground02.pngy4:sizei7937552y4:typey5:IMAGEy2:idR1y7:preloadtgoR0y21:assets%2Ftomorrow.pngR2i2141679R3R4R5R7R6tgoR0y30:assets%2Ftomorrow_building.pngR2i184693R3R4R5R8R6tgoR0y25:assets%2Ftomorrow_atf.xmlR2i4110R3y4:TEXTR5R9R6tgoR0y25:assets%2Ftomorrow_png.xmlR2i4110R3R10R5R11R6tgoR0y25:assets%2Fbackground02.atfR2i2097360R3y6:BINARYR5R12R6tgoR0y21:assets%2Ftomorrow.atfR2i4194512R3R13R5R14R6tgoR0y26:assets%2Ftomorrow.atf.gzipR2i532414R3R13R5R15R6tgoR0R15R2i532414R3R13R5R15R6tgh\",\"version\":2,\"libraryArgs\":[],\"libraryType\":null}",rootPath);
 	library = lime_utils_AssetLibrary.fromManifest(manifest);
 	lime_utils_Assets.registerLibrary("default",library);
 	library = lime_utils_Assets.getLibrary("default");
@@ -30153,7 +30157,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 138897;
+	this.version = 510585;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = ["lime","utils","AssetCache"];
@@ -32285,6 +32289,17 @@ lime_utils_compress_Deflate.compress = function(bytes) {
 };
 lime_utils_compress_Deflate.decompress = function(bytes) {
 	var data = pako.inflateRaw(bytes.b.bufferValue);
+	return haxe_io_Bytes.ofData(data);
+};
+var lime_utils_compress_GZip = function() { };
+$hxClasses["lime.utils.compress.GZip"] = lime_utils_compress_GZip;
+lime_utils_compress_GZip.__name__ = ["lime","utils","compress","GZip"];
+lime_utils_compress_GZip.compress = function(bytes) {
+	var data = pako.gzip(bytes.b.bufferValue);
+	return haxe_io_Bytes.ofData(data);
+};
+lime_utils_compress_GZip.decompress = function(bytes) {
+	var data = pako.ungzip(bytes.b.bufferValue);
 	return haxe_io_Bytes.ofData(data);
 };
 var lime_utils_compress_LZMA = function() { };
@@ -65121,25 +65136,35 @@ haxe_lang_Iterable.prototype = {
 };
 var scenes_MovieScene = function() {
 	starling_display_Sprite.call(this);
+	this.addEventListener("keyDown",$bind(this,this.onKey));
 	this.mBackground = new starling_display_Image(Game.get_assets().getTexture("background"));
 	this.addChild(this.mBackground);
 	this.mImage = new starling_display_Image(Game.get_assets().getTexture("tomorrow_building"));
 	this.mImage.set_x(Constants.CenterX - (this.mImage.get_width() / 2 | 0));
 	this.mImage.set_y(Constants.CenterY - (this.mImage.get_height() / 2 | 0));
 	this.addChild(this.mImage);
-	var frames = Game.get_assets().getTextures("A_A_TomorrowEra_Culture3");
+	var movie = new starling_display_MovieClip(Game.get_assets().getTextures("A_A_TomorrowEra_Culture3_Atf"),15);
 	this.mMovies = [];
-	var _g = 0;
-	while(_g < 1000) {
-		var i = _g++;
-		var movie = new starling_display_MovieClip(frames,15);
-		movie.set_x(Constants.CenterX - (movie.get_width() / 2 | 0) + (i == 0?0:400 + i));
-		movie.set_y(Constants.CenterY - (movie.get_height() / 2 | 0) + i % 4 * 10);
-		this.addChild(movie);
-		this.mMovies.push(movie);
-	}
+	movie.set_x(Constants.CenterX - (movie.get_width() / 2 | 0));
+	movie.set_y(Constants.CenterY - (movie.get_height() / 2 | 0));
+	this.addChild(movie);
+	this.mMovies.push(movie);
 	this.addEventListener("addedToStage",$bind(this,this.onAddedToStage));
 	this.addEventListener("removedFromStage",$bind(this,this.onRemovedFromStage));
+	var infoText = new starling_text_TextField(400,100,"A: Add 1000 ATF animations\nP: Add 1000 PNG animations\nSpace: Display FPS","Arial",16);
+	infoText.set_color(0);
+	infoText.set_hAlign("left");
+	infoText.set_vAlign("top");
+	infoText.set_x(100);
+	infoText.set_y(50);
+	this.addChild(infoText);
+	this.mCounterText = new starling_text_TextField(400,100,"Benchmark animations: 0","Arial",16);
+	this.mCounterText.set_color(0);
+	this.mCounterText.set_hAlign("left");
+	this.mCounterText.set_vAlign("top");
+	this.mCounterText.set_x(100);
+	this.mCounterText.set_y(0);
+	this.addChild(this.mCounterText);
 };
 $hxClasses["scenes.MovieScene"] = scenes_MovieScene;
 scenes_MovieScene.__name__ = ["scenes","MovieScene"];
@@ -65148,6 +65173,29 @@ scenes_MovieScene.prototype = $extend(starling_display_Sprite.prototype,{
 	mMovies: null
 	,mImage: null
 	,mBackground: null
+	,mCounterText: null
+	,onKey: function(event) {
+		if(event.get_keyCode() == 65) {
+			this.addMovies("Atf");
+		}
+		if(event.get_keyCode() == 80) {
+			this.addMovies("Png");
+		}
+	}
+	,addMovies: function(type) {
+		var frames = Game.get_assets().getTextures("A_A_TomorrowEra_Culture3_" + type);
+		var _g = 0;
+		while(_g < 1000) {
+			var i = _g++;
+			var movie = new starling_display_MovieClip(frames,15);
+			movie.set_x(i % 50 * 20);
+			movie.set_y((i / 50 | 0) * 20);
+			this.addChild(movie);
+			this.mMovies.push(movie);
+			starling_core_Starling.get_current().get_juggler().add(movie);
+		}
+		this.mCounterText.set_text("Benchmark animations: " + this.mMovies.length);
+	}
 	,onAddedToStage: function() {
 		var _g = 0;
 		var _g1 = this.mMovies;
@@ -74946,10 +74994,10 @@ openfl_display_DisplayObject.__broadcastEvents = new haxe_ds_StringMap();
 openfl_display_DisplayObject.__instanceCount = 0;
 openfl_display_DisplayObject.__worldRenderDirty = 0;
 openfl_display_DisplayObject.__worldTransformDirty = 0;
-Constants.GameWidth = 480;
-Constants.GameHeight = 480;
-Constants.CenterX = 240;
-Constants.CenterY = 240;
+Constants.GameWidth = 800;
+Constants.GameHeight = 600;
+Constants.CenterX = 400;
+Constants.CenterY = 300;
 starling_events_EventDispatcher.sBubbleChains = [];
 lime_math_Matrix3.__identity = new lime_math_Matrix3();
 openfl_geom_Matrix.__identity = new openfl_geom_Matrix();
