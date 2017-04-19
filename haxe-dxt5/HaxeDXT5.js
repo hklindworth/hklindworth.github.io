@@ -5638,7 +5638,7 @@ ManifestResources.init = function(config) {
 	lime_utils_Assets.defaultRootPath = rootPath;
 	var manifest;
 	var library;
-	manifest = lime_utils_AssetManifest.parse("{\"name\":null,\"assets\":\"aoy4:pathy25:assets%2Fbackground02.pngy4:sizei7937552y4:typey5:IMAGEy2:idR1y7:preloadtgoR0y21:assets%2Ftomorrow.pngR2i2141679R3R4R5R7R6tgoR0y30:assets%2Ftomorrow_building.pngR2i184693R3R4R5R8R6tgoR0y25:assets%2Ftomorrow_atf.xmlR2i4110R3y4:TEXTR5R9R6tgoR0y25:assets%2Ftomorrow_png.xmlR2i4110R3R10R5R11R6tgoR0y25:assets%2Fbackground02.atfR2i2097360R3y6:BINARYR5R12R6tgoR0y21:assets%2Ftomorrow.atfR2i4194512R3R13R5R14R6tgoR0y26:assets%2Ftomorrow.atf.gzipR2i532414R3R13R5R15R6tgoR0R15R2i532414R3R13R5R15R6tgh\",\"version\":2,\"libraryArgs\":[],\"libraryType\":null}",rootPath);
+	manifest = lime_utils_AssetManifest.parse("{\"name\":null,\"assets\":\"aoy4:pathy21:assets%2Ftomorrow.pngy4:sizei2141679y4:typey5:IMAGEy2:idR1y7:preloadtgoR0y30:assets%2Ftomorrow_building.pngR2i184693R3R4R5R7R6tgoR0y25:assets%2Ftomorrow_atf.xmlR2i4110R3y4:TEXTR5R8R6tgoR0y25:assets%2Ftomorrow_png.xmlR2i4110R3R9R5R10R6tgoR0y25:assets%2Fbackground02.atfR2i2097360R3y6:BINARYR5R11R6tgoR0y21:assets%2Ftomorrow.atfR2i4194512R3R12R5R13R6tgoR0y26:assets%2Ftomorrow.atf.gzipR2i532414R3R12R5R14R6tgoR0R14R2i532414R3R12R5R14R6tgh\",\"version\":2,\"libraryArgs\":[],\"libraryType\":null}",rootPath);
 	library = lime_utils_AssetLibrary.fromManifest(manifest);
 	lime_utils_Assets.registerLibrary("default",library);
 	library = lime_utils_Assets.getLibrary("default");
@@ -30157,7 +30157,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 510585;
+	this.version = 5817;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = ["lime","utils","AssetCache"];
