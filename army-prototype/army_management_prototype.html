@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Army Management Prototype</title>
+        <style type="text/css">
+        body {
+            background-color: #ffffff;
+        }
+        #main {
+            position: relative;
+            width: 760px;
+            height: 603px;
+            margin: auto;
+            background-image: url("Background.jpg");
+        }
+        #tab0_fast {
+            position: absolute;
+            top: 352px;
+            left: 102px;
+            width: 33px;
+            height: 27px;
+        }
+        #tab0_heavy {
+            position: absolute;
+            top: 352px;
+            left: 146px;
+            width: 33px;
+            height: 27px;
+        }
+        #tab0_light {
+            position: absolute;
+            top: 352px;
+            left: 190px;
+            width: 33px;
+            height: 27px;
+        }
+        #tab0_siege {
+            position: absolute;
+            top: 352px;
+            left: 234px;
+            width: 33px;
+            height: 27px;
+        }
+        #tab0_range {
+            position: absolute;
+            top: 352px;
+            left: 278px;
+            width: 33px;
+            height: 27px;
+        }
+        #tab0_champ {
+            position: absolute;
+            top: 352px;
+            left: 322px;
+            width: 33px;
+            height: 27px;
+        }
+        #tab0_rogue {
+            position: absolute;
+            top: 352px;
+            left: 366px;
+            width: 33px;
+            height: 27px;
+        }
+        #tab1_fast {
+            position: absolute;
+            top: 349px;
+            left: 99px;
+            width: 39px;
+            height: 33px;
+            background-image: url("Fast.jpg");
+        }
+        #tab1_heavy {
+            position: absolute;
+            top: 349px;
+            left: 143px;
+            width: 39px;
+            height: 33px;
+            background-image: url("Heavy.jpg");
+        }
+        #tab1_light {
+            position: absolute;
+            top: 349px;
+            left: 187px;
+            width: 39px;
+            height: 33px;
+            background-image: url("Light.jpg");
+        }
+        #tab1_siege {
+            position: absolute;
+            top: 349px;
+            left: 231px;
+            width: 39px;
+            height: 33px;
+            background-image: url("Siege.jpg");
+        }
+        #tab1_range {
+            position: absolute;
+            top: 349px;
+            left: 275px;
+            width: 39px;
+            height: 33px;
+            background-image: url("Range.jpg");
+        }
+        #tab1_champ {
+            position: absolute;
+            top: 349px;
+            left: 319px;
+            width: 39px;
+            height: 33px;
+            background-image: url("Champion.jpg");
+        }
+        #tab1_rogue {
+            position: absolute;
+            top: 349px;
+            left: 363px;
+            width: 39px;
+            height: 33px;
+            background-image: url("Rogue.jpg");
+        }
+        .army {
+            position: absolute;
+            width: 58px;
+            height: 66px;
+            background-image: url("Army.jpg");
+        }
+        #army_0 {
+            top: 181px;
+            left: 32px;
+        }
+        #army_1 {
+            top: 253px;
+            left: 32px;
+        }
+        #army_2 {
+            top: 181px;
+            left: 95px;
+        }
+        #army_3 {
+            top: 253px;
+            left: 95px;
+        }
+        #army_4 {
+            top: 181px;
+            left: 158px;
+        }
+        #army_5 {
+            top: 253px;
+            left: 158px;
+        }
+        #army_6 {
+            top: 181px;
+            left: 221px;
+        }
+        #army_7 {
+            top: 253px;
+            left: 221px;
+        }
+        .pool {
+            position: absolute;
+            width: 58px;
+            height: 75px;
+            color: #ffffff;
+            font-size: 10px;
+            font-weight: bold;
+            font-family: Arial;
+            background-image: url("Pool.jpg");
+        }
+        #pool_00 {
+            top: 389px;
+            left: 102px;
+        }
+        #pool_01 {
+            top: 389px;
+            left: 165px;
+        }
+        #pool_02 {
+            top: 389px;
+            left: 228px;
+        }
+        #pool_03 {
+            top: 389px;
+            left: 291px;
+        }
+        #pool_04 {
+            top: 389px;
+            left: 354px;
+        }
+        #pool_05 {
+            top: 389px;
+            left: 417px;
+        }
+        #pool_06 {
+            top: 389px;
+            left: 480px;
+        }
+        #pool_07 {
+            top: 389px;
+            left: 543px;
+        }
+        #pool_08 {
+            top: 389px;
+            left: 606px;
+        }
+        #pool_09 {
+            top: 389px;
+            left: 669px;
+        }
+        #pool_10 {
+            top: 470px;
+            left: 102px;
+        }
+        #pool_11 {
+            top: 470px;
+            left: 165px;
+        }
+        #pool_12 {
+            top: 470px;
+            left: 228px;
+        }
+        #pool_13 {
+            top: 470px;
+            left: 291px;
+        }
+        #pool_14 {
+            top: 470px;
+            left: 354px;
+        }
+        #pool_15 {
+            top: 470px;
+            left: 417px;
+        }
+        #pool_16 {
+            top: 470px;
+            left: 480px;
+        }
+        #pool_17 {
+            top: 470px;
+            left: 543px;
+        }
+        #pool_18 {
+            top: 470px;
+            left: 606px;
+        }
+        #pool_19 {
+            top: 470px;
+            left: 669px;
+        }
+        #age {
+            position: absolute;
+            top: 348px;
+            left: 608px;
+        }
+        </style>
+        <script type="text/javascript">
+        function getCookie(name) {
+            name += '=';
+            var a = document.cookie.split(';');
+            for (var i = 0; i < a.length; i++) {
+                var b = a[i];
+                while (b.charAt(0) == ' ') {
+                    b = b.substring(1);
+                }
+                if (b.indexOf(name) == 0) {
+                    return b.substring(name.length);
+                }
+            }
+            return 0;
+        }
+        function setCookie(name, value) {
+            var d = new Date();
+            d.setTime(d.getTime() + 7 * 24 * 60 * 60 * 1000);
+            document.cookie = name + '=' + value + '; expires=' + d.toUTCString();
+        }
+        var tab = getCookie('tab');
+        var age = getCookie('age');
+        var tabs = ['fast', 'heavy', 'light', 'siege', 'range', 'champ', 'rogue'];
+        var ages = 11;
+        var units = [];
+        for (var i = 0; i < ages + 1; i++) {
+            var a = [];
+            for (var j = 0; j < 6; j++) {
+                var b = [];
+                for (var k = 0; k < 2; k++) {
+                    var c = [];
+                    for (var l = 0; l < 10; l++) {
+                        c.push(0);
+                    }
+                    b.push(c);
+                }
+                a.push(b);
+            }
+            units.push(a);
+        }
+        for (var i = 0; i < 10000; i++) {
+            var a = Math.floor(Math.random() * (ages + 1));
+            var b = (a == ages) ? 0 : Math.floor(Math.random() * 6);
+            var c = Math.floor(Math.random() + 0.9);
+            var d = (Math.random() < 0.9) ? 0 : Math.floor(Math.random() * 10);
+            units[a][b][c][d]++;
+        }
+        var portraits = [['horseman',
+                          'hoplite',
+                          'javeliner',
+                          'palintona',
+                          'slinger',
+                          'BronzeAge_champion'],
+                         ['mounted_legionnaire',
+                          'legionnaire',
+                          'militiaman',
+                          'balista',
+                          'archer',
+                          'IronAge_champion'],
+                         ['cataphract',
+                          'armoredswordsman',
+                          'spearman',
+                          'catapult',
+                          'mounted_bowman',
+                          'EarlyMiddleAge_champion'],
+                         ['feudal_knight',
+                          'dismounted_knight',
+                          'axe_hammer_warrior',
+                          'trebuchet',
+                          'crossbowman',
+                          'HighMiddleAge_champion'],
+                         ['imperial_knight',
+                          'pikeman',
+                          'biedenhaender_mercenary',
+                          'bombarde',
+                          'longbowman',
+                          'LateMiddleAge_champion'],
+                         ['dragoon',
+                          'grenadier',
+                          'ranger',
+                          'cannoniers',
+                          'marksman',
+                          'ColonialAge_champion'],
+                         ['lancer',
+                          'howitzer',
+                          'jaeger',
+                          'breech_loader',
+                          'rifleman',
+                          'IndustrialAge_champion'],
+                         ['armored_car',
+                          'tank',
+                          'conscript',
+                          'rf_cannon',
+                          'sniper',
+                          'ProgressiveEra_champion'],
+                         ['mech_infantry',
+                          'battle_tank',
+                          'bazooka',
+                          'mech_artillery',
+                          'paratrooper',
+                          'ModernEra_champion'],
+                         ['infantry_fighting_vehicle',
+                          'universal_tank',
+                          'commando',
+                          'rocket_artillery',
+                          'automatic_rifleman',
+                          'PostModernEra_champion'],
+                         ['attack_helicopter',
+                          'assault_tank',
+                          'strike_team',
+                          'missile_artillery',
+                          'aa_vehicle',
+                          'ContemporaryEra_champion'],
+                         ['rogue']];
+        function display(unit) {
+            while (unit.firstChild) {
+                unit.removeChild(unit.firstChild);
+            }
+            var a = document.createElement('img');
+            a.src = 'http://foeen.innogamescdn.com/assets/shared/unit_portraits/armyuniticons_90x90/armyuniticons_90x90_' + unit.portrait + '.jpg';
+            a.style.position = 'absolute';
+            a.style.top = '5px';
+            a.style.left = '5px';
+            a.style.width = '48px';
+            a.style.height = '48px';
+            unit.appendChild(a);
+            if (unit.unattached) {
+                a = document.createElement('img');
+                a.src= 'Unattached.gif';
+                a.style.position = 'absolute';
+                a.style.top = '5px';
+                a.style.left = '33px';
+                a.style.width = '20px';
+                a.style.height = '20px';
+                unit.appendChild(a);
+            }
+            for (var i = 0; i < 10; i++) {
+                a = document.createElement('div');
+                a.style.position = 'absolute';
+                a.style.top = '55px';
+                a.style.left = i * 5 + 5 + 'px';
+                a.style.width = '3px';
+                a.style.height = '5px';
+                a.style.backgroundColor = (unit.hp > i) ? '#00ff00' : '#ff0000';
+                unit.appendChild(a);
+            }
+            if (unit.count) {
+                a = document.createElement('div');
+                a.style.position = 'absolute';
+                a.style.top = '60px';
+                a.style.left = '5px';
+                a.innerHTML = unit.count;
+                unit.appendChild(a);
+            }
+        }
+        function update(type) {
+            tab = type;
+            setCookie('tab', tab);
+            age = document.getElementById('age').value;
+            setCookie('age', age);
+            for (var i = 0; i < tabs.length; i++) {
+                if (i == tab) {
+                    document.getElementById('tab1_' + tabs[i]).style.display = 'block';
+                } else {
+                    document.getElementById('tab1_' + tabs[i]).style.display = 'none';
+                }
+            }
+            for (var i = 0; i < 2; i++) {
+                var left = 102;
+                for (var j = 0; j < 10; j++) {
+                    var pool = document.getElementById('pool_' + i + j);
+                    if (tab < 6) {
+                        pool.count = units[age][tab][i][j];
+                        pool.portrait = portraits[age][tab];
+                    } else {
+                        pool.count = units[ages][0][i][j];
+                        pool.portrait = portraits[ages][0];
+                    }
+                    pool.unattached = i;
+                    pool.hp = 10 - j;
+                    if (pool.count > 0) {
+                        pool.style.left = left + 'px';
+                        pool.style.display = 'block';
+                        left += 63;
+                        display(pool);
+                    } else {
+                        pool.style.display = 'none';
+                    }
+                }
+            }
+        }
+        var army = 0;
+        function select(pool) {
+            if (army == 8) {
+                return;
+            }
+            var unit = document.getElementById('army_' + army);
+            unit.age = age;
+            unit.type = tab;
+            unit.order = army;
+            unit.portrait = pool.portrait;
+            unit.unattached = pool.unattached;
+            unit.hp = pool.hp;
+            army++;
+            if (tab < 6) {
+                units[age][tab][pool.unattached][10 - pool.hp]--;
+            } else {
+                unit.age = ages;
+                unit.type = 0;
+                units[ages][0][pool.unattached][10 - pool.hp]--;
+            }
+            update(tab);
+            display(unit);
+        }
+        function deselect(unit) {
+            if (unit.order >= army) {
+                return;
+            }
+            units[unit.age][unit.type][unit.unattached][10 - unit.hp]++;
+            army--;
+            update(tab);
+            while (unit.order < army) {
+                var next = document.getElementById('army_' + (unit.order + 1));
+                unit.age = next.age;
+                unit.type = next.type;
+                unit.portrait = next.portrait;
+                unit.unattached = next.unattached;
+                unit.hp = next.hp;
+                display(unit);
+                unit = next;
+            }
+            while (unit.firstChild) {
+                unit.removeChild(unit.firstChild);
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <div id="main">
+            <div id="tab0_fast" onclick="update(0)"></div>
+            <div id="tab0_heavy" onclick="update(1)"></div>
+            <div id="tab0_light" onclick="update(2)"></div>
+            <div id="tab0_siege" onclick="update(3)"></div>
+            <div id="tab0_range" onclick="update(4)"></div>
+            <div id="tab0_champ" onclick="update(5)"></div>
+            <div id="tab0_rogue" onclick="update(6)"></div>
+            <div id="tab1_fast"></div>
+            <div id="tab1_heavy"></div>
+            <div id="tab1_light"></div>
+            <div id="tab1_siege"></div>
+            <div id="tab1_range"></div>
+            <div id="tab1_champ"></div>
+            <div id="tab1_rogue"></div>
+            <div id="army_0" class="army" onclick="deselect(this)"></div>
+            <div id="army_1" class="army" onclick="deselect(this)"></div>
+            <div id="army_2" class="army" onclick="deselect(this)"></div>
+            <div id="army_3" class="army" onclick="deselect(this)"></div>
+            <div id="army_4" class="army" onclick="deselect(this)"></div>
+            <div id="army_5" class="army" onclick="deselect(this)"></div>
+            <div id="army_6" class="army" onclick="deselect(this)"></div>
+            <div id="army_7" class="army" onclick="deselect(this)"></div>
+            <div id="pool_00" class="pool" onclick="select(this)"></div>
+            <div id="pool_01" class="pool" onclick="select(this)"></div>
+            <div id="pool_02" class="pool" onclick="select(this)"></div>
+            <div id="pool_03" class="pool" onclick="select(this)"></div>
+            <div id="pool_04" class="pool" onclick="select(this)"></div>
+            <div id="pool_05" class="pool" onclick="select(this)"></div>
+            <div id="pool_06" class="pool" onclick="select(this)"></div>
+            <div id="pool_07" class="pool" onclick="select(this)"></div>
+            <div id="pool_08" class="pool" onclick="select(this)"></div>
+            <div id="pool_09" class="pool" onclick="select(this)"></div>
+            <div id="pool_10" class="pool" onclick="select(this)"></div>
+            <div id="pool_11" class="pool" onclick="select(this)"></div>
+            <div id="pool_12" class="pool" onclick="select(this)"></div>
+            <div id="pool_13" class="pool" onclick="select(this)"></div>
+            <div id="pool_14" class="pool" onclick="select(this)"></div>
+            <div id="pool_15" class="pool" onclick="select(this)"></div>
+            <div id="pool_16" class="pool" onclick="select(this)"></div>
+            <div id="pool_17" class="pool" onclick="select(this)"></div>
+            <div id="pool_18" class="pool" onclick="select(this)"></div>
+            <div id="pool_19" class="pool" onclick="select(this)"></div>
+            <select id="age" onchange="update(tab)">
+                <option value="0">Bronze Age</option>
+                <option value="1">Iron Age</option>
+                <option value="2">Early Middle Ages</option>
+                <option value="3">High Middle Ages</option>
+                <option value="4">Late Middle Ages</option>
+                <option value="5">Colonial Age</option>
+                <option value="6">Industrial Age</option>
+                <option value="7">Progressive Era</option>
+                <option value="8">Modern Era</option>
+                <option value="9">Postmodern Era</option>
+                <option value="10">Contemporary Era</option>
+            </select>
+        </div>
+        <script type="text/javascript">
+            document.getElementById('age').value = age;
+            update(tab);
+            </script>
+    </body>
+</html>
